@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Exam: {{ exam.title }}</h2>
+<form method="post">
+  {% for q in questions %}
+    <fieldset>
+      <legend>{{ loop.index }}. {{ q.text }}</legend>
+      <label><input type="radio" name="{{ q.id }}" value="A" required> A) {{ q.option_a }}</label><br>
+      <label><input type="radio" name="{{ q.id }}" value="B"> B) {{ q.option_b }}</label><br>
+      <label><input type="radio" name="{{ q.id }}" value="C"> C) {{ q.option_c }}</label><br>
+      <label><input type="radio" name="{{ q.id }}" value="D"> D) {{ q.option_d }}</label>
+    </fieldset>
+    <br>
+  {% endfor %}
+  <button type="submit">Submit Exam</button>
+</form>
+{% endblock %}

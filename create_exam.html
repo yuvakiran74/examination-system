@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Create Exam</h2>
+<form method="post">
+  <label>Title: <input name="title" required></label><br><br>
+  {% for i in range(1,6) %}
+    <fieldset>
+      <legend>Question {{ i }}</legend>
+      <label>Text: <input name="q{{i}}_text" required></label><br>
+      <label>A: <input name="q{{i}}_a" required></label>
+      <label>B: <input name="q{{i}}_b" required></label>
+      <label>C: <input name="q{{i}}_c" required></label>
+      <label>D: <input name="q{{i}}_d" required></label><br>
+      <label>Correct Answer (A/B/C/D): <input name="q{{i}}_ans" required></label>
+    </fieldset>
+    <br>
+  {% endfor %}
+  <button type="submit">Create Exam</button>
+</form>
+{% endblock %}

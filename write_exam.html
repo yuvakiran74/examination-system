@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="main-wrapper">
+  <div class="exam-card">
+    <h2>{{ exam.title }}</h2>
+    <form method="post">
+      {% for question in questions %}
+      <div class="form-group">
+        <label>{{ loop.index }}. {{ question.text }}</label>
+        <div>
+          <label><input type="radio" name="{{ question.id }}" value="A" required> {{ question.option_a }}</label><br>
+          <label><input type="radio" name="{{ question.id }}" value="B"> {{ question.option_b }}</label><br>
+          <label><input type="radio" name="{{ question.id }}" value="C"> {{ question.option_c }}</label><br>
+          <label><input type="radio" name="{{ question.id }}" value="D"> {{ question.option_d }}</label>
+        </div>
+      </div>
+      {% endfor %}
+      <button class="btn-submit" type="submit">Submit Exam</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
